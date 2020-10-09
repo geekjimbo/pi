@@ -12,7 +12,6 @@ if __name__ == "__main__":
         .builder\
         .appName("PythonPi")\
         .getOrCreate()
-    import spark.implicits._ 
 
     spark.sparkContext.hadoopConfiguration().set("spark.hadoop.fs.s3a.impl", "org.apache.hadoop.fs.s3a.S3AFileSystem")
     spark.sparkContext.hadoopConfiguration().set("spark.hadoop.fs.s3a.connection.ssl.enabled", "false")
