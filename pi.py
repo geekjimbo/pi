@@ -4,7 +4,6 @@ from operator import add
 
 from pyspark.sql import SparkSession
 
-
 if __name__ == "__main__":
     """
         Usage: pi [partitions]
@@ -13,6 +12,8 @@ if __name__ == "__main__":
         .builder\
         .appName("PythonPi")\
         .getOrCreate()
+
+    myfile = sc.textFile("s3a://pro-pair-serverless/staging/test/myfile.txt")
 
     partitions = int(sys.argv[1]) if len(sys.argv) > 1 else 2
     n = 100000 * partitions
