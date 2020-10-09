@@ -13,6 +13,11 @@ if __name__ == "__main__":
         .appName("PythonPi")\
         .getOrCreate()
 
+    spark.sparkContext._jsc.hadoopConfiguration().set("spark.hadoop.fs.s3a.impl", "org.apache.hadoop.fs.s3a.S3AFileSystem")
+    spark.sparkContext._jsc.hadoopConfiguration().set("spark.hadoop.fs.s3a.impl", "org.apache.hadoop.fs.s3a.S3AFileSystem")
+    spark.sparkContext._jsc.hadoopConfiguration().set("spark.hadoop.fs.s3a.connection.ssl.enabled", "false")
+    spark.sparkContext._jsc.hadoopConfiguration().set("spark.driver.extraClassPath", "/opt/spark/jars/*")
+    spark.sparkContext._jsc.hadoopConfiguration().set("spark.executor.extraClassPath", "/opt/spark/jars/*")
     spark.sparkContext._jsc.hadoopConfiguration().set("fs.s3.awsAccessKeyId", "AKIAWR6Y3LBV4FF42GCK")
     spark.sparkContext._jsc.hadoopConfiguration().set("fs.s3.awsSecretAccessKey", "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")
 
