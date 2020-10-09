@@ -14,7 +14,7 @@ if __name__ == "__main__":
         .getOrCreate()
 
     myfile = spark.sparkContext.textFile("s3a://pro-pair-serverless/staging/test/myfile.txt")
-    myfile.saveAsTextFile("s3a://pro-pair-serverless/staging/test/myoutfile.out")
+    myfile.saveAsTextFile("s3a://pro-pair-serverless.s3.us-west-1.amazonaws.com/test/myoutfile.txt")
 
     partitions = int(sys.argv[1]) if len(sys.argv) > 1 else 2
     n = 100000 * partitions
