@@ -13,6 +13,9 @@ if __name__ == "__main__":
         .appName("PythonPi")\
         .getOrCreate()
 
+    spark.sparkContext._jsc.hadoopConfiguration().set("fs.s3.awsAccessKeyId", "AKIAWR6Y3LBV4FF42GCK")
+    spark.sparkContext._jsc.hadoopConfiguration().set("fs.s3.awsSecretAccessKey", "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")
+
     myfile = spark.sparkContext.textFile("s3a://pro-pair-serverless/staging/test/myfile.txt")
     myfile.saveAsTextFile("s3a://pro-pair-serverless/staging/test/test/myoutfile.txt")
 
